@@ -1,0 +1,453 @@
+/* ===== CYBERPUNK CONTACT PAGE THEME ===== */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap');
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  /* Color Palette */
+  --cyber-blue: #00d4ff;
+  --cyber-purple: #8b5cf6;
+  --cyber-pink: #ec4899;
+  --cyber-cyan: #06b6d4;
+  --cyber-green: #10b981;
+  --dark-bg: #0a0a0a;
+  --darker-bg: #050505;
+  --card-bg: rgba(20, 20, 20, 0.8);
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e7;
+  --text-muted: #d1d5db;
+  
+  /* Gradients */
+  --cyber-gradient: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+  --tech-gradient: linear-gradient(135deg, var(--cyber-cyan), var(--cyber-green));
+  --creative-gradient: linear-gradient(135deg, var(--cyber-purple), var(--cyber-pink));
+  
+  /* Shadows */
+  --neon-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  --purple-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+  --pink-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
+}
+
+/* ===== BASE STYLES ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--dark-bg);
+  color: var(--text-primary);
+  font-family: 'Exo 2', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Navigation styling */
+header {
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  color: var(--cyber-blue);
+  text-shadow: 0 0 10px var(--cyber-blue);
+  transition: all 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--cyber-gradient);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--cyber-blue);
+  text-shadow: 0 0 10px var(--cyber-blue);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: var(--cyber-blue);
+  margin: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px var(--cyber-blue);
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    right: 0;
+    height: 92vh;
+    top: 8vh;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+    z-index: 1000;
+  }
+  
+  .nav-links li {
+    opacity: 0;
+    margin: 2rem 0;
+  }
+  
+  .burger {
+    display: block;
+  }
+  
+  .nav-active {
+    transform: translateX(0%);
+  }
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+  background: linear-gradient(135deg, var(--darker-bg) 0%, rgba(20, 10, 20, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: clamp(6rem, 12vh, 8rem) 0 clamp(3rem, 8vh, 5rem);
+  min-height: 100vh;
+  width: 100%;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+    linear-gradient(90deg, transparent 49%, rgba(139, 92, 246, 0.1) 50%, transparent 51%),
+    linear-gradient(0deg, transparent 49%, rgba(236, 72, 153, 0.1) 50%, transparent 51%);
+  background-size: 100% 100%, 100% 100%, 60px 60px, 60px 60px;
+  opacity: 0.6;
+  animation: circuitMove 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes circuitMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(60px, 60px); }
+}
+
+.contact h1 {
+  color: var(--cyber-purple);
+  text-shadow: 0 0 20px var(--cyber-purple);
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 5vh, 3rem);
+  animation: purpleGlow 2s ease-in-out infinite alternate;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+@keyframes purpleGlow {
+  from { text-shadow: 0 0 20px var(--cyber-purple); }
+  to { text-shadow: 0 0 30px var(--cyber-purple), 0 0 40px var(--cyber-purple); }
+}
+
+.contact-info {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  background: var(--card-bg);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.contact-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.contact-info:hover::before {
+  left: 100%;
+}
+
+.contact-info:hover {
+  transform: translateY(-5px);
+  border-color: var(--cyber-purple);
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.3);
+}
+
+.contact-info p {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.contact-info a {
+  color: var(--cyber-pink);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.contact-info a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--creative-gradient);
+  transition: width 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: var(--cyber-blue);
+  text-shadow: 0 0 10px var(--cyber-blue);
+}
+
+.contact-info a:hover::after {
+  width: 100%;
+}
+
+.social-links {
+  margin-top: clamp(1.25rem, 4vw, 2.5rem);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.social-links a {
+  display: inline-block;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 600;
+  color: var(--cyber-purple);
+  transition: all 0.3s ease;
+  text-shadow: 0 0 8px var(--cyber-purple);
+  position: relative;
+  padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.6rem, 2vw, 1rem);
+  border-radius: 8px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.social-links a:hover {
+  color: var(--cyber-pink);
+  text-shadow: 0 0 15px var(--cyber-pink);
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(236, 72, 153, 0.1);
+  border-color: rgba(236, 72, 153, 0.3);
+  box-shadow: 0 10px 20px rgba(236, 72, 153, 0.2);
+}
+
+.social-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(236, 72, 153, 0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.social-links a:hover::before {
+  opacity: 1;
+}
+
+/* Footer styling */
+footer {
+  background: rgba(5, 5, 5, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+footer p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .contact {
+    padding: clamp(5rem, 8vh, 7rem) 0 clamp(2.5rem, 4vh, 4rem);
+  }
+  
+  .contact h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+  
+  .contact-info {
+    padding: clamp(1.25rem, 3vw, 2rem);
+    margin: 0 auto;
+    width: 95%;
+  }
+  
+  .contact-info p {
+    font-size: clamp(0.95rem, 2vw, 1rem);
+  }
+  
+  .social-links {
+    flex-wrap: wrap;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+  }
+  
+  .social-links a {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    padding: clamp(0.3rem, 0.8vw, 0.4rem) clamp(0.6rem, 1.6vw, 0.8rem);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .contact {
+    padding: clamp(4rem, 6vh, 6rem) 0 clamp(2rem, 3vh, 3rem);
+  }
+  
+  .contact h1 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    margin-bottom: clamp(1.25rem, 4vh, 2rem);
+  }
+  
+  .contact-info {
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+    margin: 0 auto;
+    width: 92%;
+  }
+  
+  .contact-info p {
+    font-size: clamp(0.9rem, 1.8vw, 0.95rem);
+    margin-bottom: clamp(0.75rem, 2vh, 1rem);
+  }
+  
+  .social-links a {
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
+    padding: clamp(0.25rem, 0.6vw, 0.3rem) clamp(0.5rem, 1.2vw, 0.6rem);
+  }
+}
+
+/* Additional media query for very small screens */
+@media screen and (max-width: 400px) {
+  .contact {
+    padding: clamp(3.5rem, 5vh, 5rem) 0 clamp(1.5rem, 2vh, 2.5rem);
+  }
+  
+  .contact-info {
+    padding: 1rem;
+    width: 90%;
+  }
+  
+  .social-links {
+    gap: 0.5rem;
+  }
+  
+  .social-links a {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* Decorative elements */
+.contact::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.05) 0%, transparent 30%),
+    radial-gradient(circle at 90% 90%, rgba(236, 72, 153, 0.05) 0%, transparent 30%);
+  z-index: -1;
+}
+
+/* Pulsating effect for contact info */
+@keyframes pulse {
+  0% { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); }
+  50% { box-shadow: 0 8px 30px rgba(139, 92, 246, 0.3); }
+  100% { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4); }
+}
+
+.contact-info {
+  animation: pulse 4s infinite ease-in-out;
+}

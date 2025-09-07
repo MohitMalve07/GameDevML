@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Games & Projects | Mohit Malve</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+
+    <!-- AOS (Animate on Scroll) CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Cyberpunk Theme CSS -->
+    <link rel="stylesheet" href="theme.css">
+    <!-- Custom styles for projects page -->
+    <style>
+        /* Hero section styling */
+        #hero {
+            background: var(--hero-gradient);
+            min-height: 50vh;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: var(--cyber-blue);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        
+        #hero .lead {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+        
+        #hero::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--cyber-gradient);
+        }
+        
+        /* Apply cyberpunk theme to cards */
+        .cyber-card {
+            background: var(--card-bg);
+            border: 1px solid var(--cyber-blue);
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .cyber-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        
+        .cyber-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: var(--cyber-gradient);
+            animation: glowLine 3s infinite;
+        }
+        
+        .cyber-card .card-title {
+            color: var(--cyber-blue);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .cyber-card .btn-primary {
+            background: var(--cyber-gradient);
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-card .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+        }
+        
+        @keyframes glowLine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Section styling */
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--cyber-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            font-family: 'Exo 2', sans-serif;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80" tabindex="0">
+    <!-- Navbar -->
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Mohit Malve</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="projects.html">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+    <section id="hero" class="d-flex align-items-center justify-content-center">
+        <div class="container text-center">
+            <h1 data-aos="fade-up">Game Development Projects</h1>
+            <p class="lead" data-aos="fade-up" data-aos-delay="100">Explore my innovative game development portfolio</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+        <section id="projects" class="py-5">
+            <div class="container py-5">
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="display-4 fw-bold mb-4" data-aos="fade-up">My Games & Projects</h2>
+                        <p class="lead text-muted mb-5" data-aos="fade-up" data-aos-delay="200">Check out my latest game development work</p>
+                    </div>
+                </div>
+                
+                <div class="row g-4">
+                    <!-- 3D Kart Racing -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card h-100 shadow-sm cyber-card">
+                            <img src="KartRace.png" class="card-img-top" alt="A screenshot of the 3D Kart Racing game">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">3D Kart Racing</h5>
+                                <p class="card-text text-muted flex-grow-1">Developed a 3D kart racing prototype in Unity with realistic kart physics, smooth steering, a camera follow system, and lap counting mechanics.</p>
+                                <div class="d-flex gap-2 mt-3">
+                                    <a href="https://mtgking.itch.io/kartinggame" class="btn btn-primary" target="_blank">
+                                        <i class="bi bi-joystick me-2"></i>Play Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3D Tank Shooter Game -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card h-100 shadow-sm cyber-card">
+                            <img src="ZombieShooter.png" class="card-img-top" alt="A screenshot of the 3D Tank Shooter Game">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">3D Tank Shooter Game</h5>
+                                <p class="card-text text-muted flex-grow-1">A top-down 3D shooter game where the player controls a tank to fight off waves of zombies, featuring tank movement, shooting system, and enemy AI.</p>
+                                <div class="d-flex gap-2 mt-3">
+                                    <a href="https://yourusername.itch.io/3d-tank-shooter" class="btn btn-primary" target="_blank">
+                                        <i class="bi bi-joystick me-2"></i>Play Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2D Endless Runner -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card h-100 shadow-sm cyber-card">
+                            <img src="EndlessRunner.png" class="card-img-top" alt="A screenshot of the 2D Endless Runner game">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">2D Endless Runner</h5>
+                                <p class="card-text text-muted flex-grow-1">A 2D endless runner game with custom sprites, responsive UI for level selection and main menu, and dynamic gameplay mechanics.</p>
+                                <div class="d-flex gap-2 mt-3">
+                                    <a href="https://play.unity.com/en/games/3e4067eb-f077-4a0f-8563-b7481fb8322e/webgl-builds" class="btn btn-primary" target="_blank">
+                                        <i class="bi bi-joystick me-2"></i>Play Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3D Chess Game -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="card h-100 shadow-sm cyber-card">
+                            <img src="Chess.png" class="card-img-top" alt="A screenshot of the 3D Chess Game">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">3D Chess Game</h5>
+                                <p class="card-text text-muted flex-grow-1">A 3D chess game with fully functional chess pieces and rules logic, custom move-generation algorithms and minimax with alpha-beta pruning.</p>
+                                <div class="d-flex gap-2 mt-3">
+                                    <a href="https://yourusername.itch.io/3d-chess-game" class="btn btn-primary" target="_blank">
+                                        <i class="bi bi-joystick me-2"></i>Play Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flappy Bird -->
+                    <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                        <div class="card h-100 shadow-sm cyber-card">
+                            <img src="flappybird.png" class="card-img-top" alt="Screenshot of the Flappy Bird game">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">Flappy Bird</h5>
+                                <p class="card-text text-muted flex-grow-1">A classic 2D arcade game where players navigate a bird through a series of pipes by tapping to make it fly.</p>
+                                <div class="d-flex gap-2 mt-3">
+                                    <a href="https://mtgking.itch.io/fb" class="btn btn-primary" target="_blank">
+                                        <i class="bi bi-joystick me-2"></i>Play Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4 text-center">
+      <div class="container">
+        <small class="text-muted">&copy; <span id="year"></span> Mohit Malve. All rights reserved.</small>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- AOS (Animate on Scroll) JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- Small helpers -->
+    <script>
+      // Update copyright year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Collapse mobile menu after clicking a nav link
+      const navbar = document.getElementById('navbarSupportedContent');
+      const navLinks = navbar?.querySelectorAll('.nav-link');
+      navLinks?.forEach((link) =>
+        link.addEventListener('click', () => {
+          const bsCollapse = bootstrap.Collapse.getInstance(navbar);
+          if (bsCollapse && window.getComputedStyle(navbar).display !== 'none') {
+            bsCollapse.hide();
+          }
+        })
+      );
+
+      // Initialize AOS (Animate on Scroll)
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true,
+        offset: 100,
+        delay: 0
+      });
+    </script>
+</body>
+</html>
